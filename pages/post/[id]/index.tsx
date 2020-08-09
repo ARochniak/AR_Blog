@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { removePost } from '../../../src/store/actions';
-import Layout from '../../../components/Layout';
+import Layout from '../../../src/components/Layout';
 
 export async function getServerSideProps({ query }) {
   const res = await axios(`https://simple-blog-api.crew.red/posts/${query.id}`);

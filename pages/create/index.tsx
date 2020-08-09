@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { addPost } from '../../src/store/actions';
-import Layout from '../../components/Layout';
+import Layout from '../../src/components/Layout';
 
 const Form = styled.form`
   display: flex;

@@ -6,7 +6,7 @@ import axios from 'axios';
 // import { startClock } from '../src/store/actions';
 import styled from 'styled-components';
 import { Post } from '../interfaces';
-import Layout from '../components/Layout';
+import Layout from '../src/components/Layout';
 
 export async function getServerSideProps() {
   const res = await axios('https://simple-blog-api.crew.red/posts');

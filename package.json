@@ -26,8 +26,8 @@
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
-      "yarn lint",
-      "yarn format"
+      "prettier --write",
+      "eslint src/*.js --fix"
     ]
   },
   "devDependencies": {
