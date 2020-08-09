@@ -1,7 +1,9 @@
 import axios from 'axios';
 import * as types from './types';
+import { AppThunkAction } from '../../interfaces';
+import { KonwnActions } from './reducers';
 
-export const addPost = (post: { body: string; title: string }, callBack: () => void) => async (dispatch, getState) => {
+export const addPost = (post: { body: string; title: string }, callBack: () => void): AppThunkAction<KonwnActions> => async (dispatch, getState) => {
   const body = JSON.stringify(post);
   const response = await axios.post('https://simple-blog-api.crew.red/posts', body, {
     headers: { 'Content-Type': 'application/json' }
@@ -12,10 +14,9 @@ export const addPost = (post: { body: string; title: string }, callBack: () => v
   callBack();
 };
 
-export const removePost = (id: number, callBack: () => void) => async (dispatch, getState) => {
+export const removePost = (id: number, callBack: () => void): AppThunkAction<KonwnActions> => async (dispatch, getState) => {
   const requestOptions = {
-    method: 'DELETE',
-    redirect: 'follow'
+    method: 'DELETE'
   };
   try {
     await fetch(`https://simple-blog-api.crew.red/posts/${id}`, requestOptions);

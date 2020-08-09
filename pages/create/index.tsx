@@ -54,8 +54,8 @@ export default function CreatePost() {
   return (
     <Layout page="create">
       <Form onSubmit={addPostHandler}>
-        <Field isTitle onChange={titleChangeHandler} placeholder="Enter post title" rows="1" />
-        <Field onChange={bodyChangeHandler} placeholder="Enter post body" rows="10" />
+        <Field isTitle onChange={titleChangeHandler} placeholder="Enter post title" rows={1} />
+        <Field isTitle={false} onChange={bodyChangeHandler} placeholder="Enter post body" rows={10} />
         <CreateButtonWrapper>
           <CreateButton type="submit" value="Add post" />
         </CreateButtonWrapper>

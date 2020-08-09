@@ -1,27 +1,35 @@
-import * as types from './types';
-import { Post } from '../../interfaces';
+import { ADD_POST, REMOVE_POST } from './types';
+import { RootState, Post } from '../../interfaces';
 
-interface BlogState {
-  posts: Post[];
-}
-
-const initialBlogState: BlogState = {
+const initialBlogState: RootState = {
   posts: []
 };
 
-const timerReducer = (state = initialBlogState, { type, payload }) => {
+interface AddAction {
+  type: typeof ADD_POST;
+  payload: Post;
+}
+
+interface RemovePost {
+  type: typeof REMOVE_POST;
+  payload: Post[];
+}
+
+export type KonwnActions = AddAction | RemovePost;
+
+const blogReducer = (state = initialBlogState, { type, payload }: KonwnActions): RootState => {
   switch (type) {
-    case types.ADD_POST:
+    case ADD_POST:
       return {
-        posts: [payload, ...state.posts]
+        posts: [payload as Post, ...state.posts]
       };
-    case types.REMOVE_POST:
+    case REMOVE_POST:
       return {
-        posts: payload
+        posts: payload as Post[]
       };
     default:
       return state;
   }
 };
 
-export default timerReducer;
+export default blogReducer;

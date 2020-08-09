@@ -1,13 +1,15 @@
 import axios from 'axios';
+import { GetServerSideProps } from 'next'
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { removePost } from '../../../src/store/actions';
 import Layout from '../../../src/components/Layout';
+import { Post as IPost } from '../../../interfaces';
 
-export async function getServerSideProps({ query }) {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const res = await axios(`https://simple-blog-api.crew.red/posts/${query.id}`);
-  const post: Post = res.data;
+  const post: IPost = res.data;
 
   return {
     props: {
@@ -39,11 +41,11 @@ const Title = styled.h3`
   text-align: center;
 `;
 
-const Post = ({ post }) => {
+const Post = ({ post }: { post: IPost }) => {
   const dispatch = useDispatch();
   const router = useRouter();
   return (
-    <Layout>
+    <Layout page="post">
       <PostWrapper>
         <RemoveButton
           type="button"

@@ -25,7 +25,7 @@ const MainWrapper = styled.div`
   padding: 0 10px;
 `;
 
-function Layout({ children, page }) {
+function Layout({ children, page }: { children: React.ReactElement; page: string }) {
   return (
     <>
       <Header>
