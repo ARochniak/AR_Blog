@@ -39,13 +39,13 @@ export default function CreatePost() {
   const [body, setBody] = useState('');
 
   const router = useRouter();
-  const titleChangeHandler = (e: React.ChangeEvent<HTMLTextareaElement>) => {
+  const titleChangeHandler = (e: React.ChangeEvent<any>) => {
     setTitle(e.currentTarget.value);
   };
-  const bodyChangeHandler = (e: React.ChangeEvent<HTMLTextareaElement>) => {
+  const bodyChangeHandler = (e: React.ChangeEvent<any>) => {
     setBody(e.currentTarget.value);
   };
-  const addPostHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const addPostHandler = (e: React.FormEvent<any>) => {
     e.preventDefault();
     if (!title || !body) return;
     const post = { title, body };
