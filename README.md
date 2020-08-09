@@ -1,4 +1,4 @@
-#AR_Blog
+# AR_Blog
 
 ## In the project directory via cmd run
 
