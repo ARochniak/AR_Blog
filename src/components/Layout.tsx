@@ -15,7 +15,7 @@ const Navigation = styled.nav`
 
 const StyledLink = styled.a`
   padding: 0 10px;
-  font-weight: ${(props) => (props.active ? 'bold' : 'normal')};
+  font-weight: ${(props: { isActive: boolean }) => (props.isActive ? 'bold' : 'normal')};
   &:hover {
     cursor: pointer;
   }
@@ -31,10 +31,10 @@ function Layout({ children, page }) {
       <Header>
         <Navigation>
           <Link href="/">
-            <StyledLink active={page === 'home'}>Home</StyledLink>
+            <StyledLink isActive={page === 'home'}>Home</StyledLink>
           </Link>
           <Link href="/create">
-            <StyledLink active={page === 'create'}>Create post</StyledLink>
+            <StyledLink isActive={page === 'create'}>Create post</StyledLink>
           </Link>
         </Navigation>
       </Header>

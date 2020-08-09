@@ -12,8 +12,8 @@ const Form = styled.form`
 
 const Field = styled.textarea`
   padding: 5px 10px;
-  font-wieght: ${(props) => (props.isTitle ? 'bold' : 'normal')};
-  font-size: ${(props) => (props.isTitle ? '1.5em' : '1em')};
+  font-wieght: ${(props: { isTitle: boolean }) => (props.isTitle ? 'bold' : 'normal')};
+  font-size: ${(props: { isTitle: boolean }) => (props.isTitle ? '1.5em' : '1em')};
   margin-bottom: 20px;
 `;
 
